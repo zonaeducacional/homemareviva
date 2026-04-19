@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maré Viva | O App do Povo do Mar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #030a12;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --teal: #0abfbc;
+      --teal-light: #52e5e7;
+      --white: #ffffff;
+      --text-muted: #8e9aaf;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg);
+      background-image: radial-gradient(circle at 50% -20%, #0d3b6e 0%, transparent 50%),
+                        radial-gradient(circle at 0% 50%, #051829 0%, transparent 40%);
+      color: var(--white);
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 { font-family: 'Syne', sans-serif; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    header {
+      padding: 40px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .logo-icon {
+      font-size: 32px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 80px 0;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      min-height: 70vh;
+    }
+
+    .hero-content { flex: 1; }
+    .hero-image { flex: 1; position: relative; }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(10, 191, 188, 0.1);
+      color: var(--teal-light);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      border: 1px solid rgba(10, 191, 188, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      background: linear-gradient(to right, #fff, var(--teal-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      max-width: 500px;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: var(--bg);
+      box-shadow: 0 10px 30px rgba(10, 191, 188, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(10, 191, 188, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--white);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-5px);
+    }
+
+    .mockup {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 40px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-title h2 { font-size: 40px; margin-bottom: 16px; }
+    .section-title p { color: var(--text-muted); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      padding: 40px;
+      border-radius: 24px;
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      border-color: var(--teal);
+      background: rgba(10, 191, 188, 0.05);
+      transform: scale(1.02);
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .feature-card h3 { margin-bottom: 12px; }
+    .feature-card p { color: var(--text-muted); font-size: 15px; }
+
+    /* FOOTER */
+    footer {
+      padding: 60px 0;
+      border-top: 1px solid var(--glass-border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 40px;
+      }
+      .hero h1 { font-size: 48px; }
+      .hero p { margin: 0 auto 40px; }
+      .cta-group { justify-content: center; }
+      .mockup { max-width: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <a href="#" class="logo">
+        <span class="logo-icon">⚓</span>
+        <span>Maré Viva</span>
+      </a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-tag">SALINAS DA MARGARIDA, BAHIA</span>
+        <h1>O App Oficial do Povo do Mar</h1>
+        <p>A tecnologia a favor de quem vive das águas. Tábua de marés, previsão do tempo, fases da lua e dicas de pesca na palma da sua mão.</p>
+        
+        <div class="cta-group">
+          <a href="https://zonaeducacional.github.io/mareviva/" target="_blank" class="btn btn-primary">
+            <span>🌐 Acessar Web App</span>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg>
+          </a>
+          <a href="https://github.com/zonaeducacional/mareviva/raw/main/mare-viva-debug.apk" class="btn btn-secondary">
+            <span>🤖 Baixar Android (APK)</span>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-image">
+        <img src="mockup.png" alt="App Maré Viva Mockup" class="mockup">
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="section-title">
+        <h2>Tudo o que você precisa</h2>
+        <p>Desenvolvido para pescadores e marisqueiras.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🌊</span>
+          <h3>Tábua de Marés</h3>
+          <p>Dados precisos da Baía de Todos os Santos em tempo real, sem complicações.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">⛅</span>
+          <h3>Previsão do Tempo</h3>
+          <p>Saiba as condições de vento, temperatura e mar antes de sair para o trabalho.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🌕</span>
+          <h3>Fases da Lua</h3>
+          <p>O ciclo lunar completo para ajudar na escolha dos melhores dias de pesca.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📱</span>
+          <h3>Offline First</h3>
+          <p>O app funciona mesmo sem internet, garantindo acesso às informações no mar.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Maré Viva - Salinas da Margarida, Bahia. <br> Desenvolvido com carinho para o Povo do Mar.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
